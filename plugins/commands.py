@@ -13,6 +13,16 @@ from utils import get_size, is_subscribed, temp
 import re
 logger = logging.getLogger(__name__)
 
+
+PICS = (
+         "https://telegra.ph/file/99895680d684d0711c017.jpg",
+         "https://telegra.ph/file/5ab2662271c89cbf0a1e3.jpg",
+         "https://telegra.ph/file/e6d9a367fe3d4e64b0195.jpg",
+         "https://telegra.ph/file/af58155475465e05d3311.jpg",
+         "https://telegra.ph/file/f0cb6b3b14e07514fcd16.jpg",
+)
+
+
 @Client.on_message(filters.command("start"))
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
@@ -208,6 +218,48 @@ async def delete_all_index(bot, message):
             ]
         ),
         quote=True,
+    )
+
+
+
+@Client.on_message(filters.command('help') & filters.private)
+async def help(client, message):
+    await message.reply_photo(
+        photo=random.choice(PICS),
+        caption=Script.HELP_MSG.format(message.from_user.mention),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("🏷️ 𝖮𝗎𝗋 𝖦𝗋𝗈𝗎𝗉", url="https://t.me/InfameSeries"),
+                    InlineKeyboardButton("♻️ 𝖠𝖻𝗈𝗎𝗍", callback_data="about")
+                ],
+                [
+                    InlineKeyboardButton ("👩‍💻 𝖬𝗒 𝖣𝖾𝗏", url="https://t.me/pubgplayer1"),
+                    InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🔐", callback_data="close_data")
+                ]
+            ]
+        ),
+        reply_to_message_id=message.message_id
+    )
+
+
+@Client.on_message(filters.command('about') & filters.private)
+async def about(client, message):
+    await message.reply_photo(
+        photo=random.choice(PICS),
+        caption=Script.ABOUT_MSG.format(message.from_user.mention),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("⚙️ 𝖧𝖾𝗅𝗉", callback_data="help"),
+                    InlineKeyboardButton("🏠 𝖧𝗈𝗆𝖾", callback_data="start"),
+                ],
+                [
+                    InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🔐", callback_data="close_data") 
+                ]               
+            ]
+        ),
+        reply_to_message_id=message.message_id
     )
 
 
