@@ -239,9 +239,9 @@ def list_to_str(k):
         return str(k[0])
     elif MAX_LIST_ELM:
         k = k[:int(MAX_LIST_ELM)]
-        return ' '.join(f'{elem}, ' for elem in k)
+        return ' '.join(f'{elem} ' for elem in k)
     else:
-        return ' '.join(f'{elem}, ' for elem in k)
+        return ' '.join(f'{elem} ' for elem in k)
 
 def last_online(from_user):
     time = ""
