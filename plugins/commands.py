@@ -226,7 +226,7 @@ async def delete_all_index(bot, message):
 async def help(client, message):
     await message.reply_photo(
         photo=random.choice(PICS),
-        caption=Script.HELP_MSG.format(message.from_user.mention),
+        caption=script.HELP_TXT.format(message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -247,7 +247,7 @@ async def help(client, message):
 async def about(client, message):
     await message.reply_photo(
         photo=random.choice(PICS),
-        caption=Script.ABOUT_MSG.format(message.from_user.mention),
+        caption=script.ABOUT_TXT.format(message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(
             [
                 [
