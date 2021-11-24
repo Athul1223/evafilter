@@ -36,7 +36,8 @@ async def give_filter(client,message):
         pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
         if re.search(pattern, name, flags=re.IGNORECASE):
             reply_text, btn, alert, fileid = await find_filter(group_id, keyword)
-            imdb = await get_poster(name) if Config.IMDB else None
+
+            imdb = await get_poster(name) if IMDB else None
             capts = f"\n<b>○ Title:</b> <b>{imdb.get('title')}</b> \n<b>○ Year:</b> <code>{imdb.get('year')}</code>\n<b>○ Language:</b> <b>{imdb.get('languages')}</b>\n<b>○ Seasons:</b> <b>{imdb.get('seasons')}</b>\n\n <i>Click on below link to get files...</i>"  
             if reply_text:
                 reply_text = reply_text+capts.replace("\\n", "\n").replace("\\t", "\t")
