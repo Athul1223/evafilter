@@ -18,7 +18,7 @@ class script(object):
 
 <b>Filter Commands;</b>
 
-<code>/add name reply</code>  -  Add filter for name
+<code>/add name reply</code>  -  Add filter 
 <code>/del name</code>  -  Delete filter
 <code>/delall</code>  -  Delete entire filters (Group Owner Only!)
 <code>/viewfilters</code>  -  List all filters in chat
