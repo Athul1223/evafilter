@@ -112,7 +112,7 @@ async def help(client, message):
     )
 
 @Client.on_message(filters.command('status') & filters.private)
-asyn def status(client, message):
+async def status(client, message):
     await message.reply_text(script.STATUS_TXT.format(message.from_user.mention)
 
 @Client.on_message(filters.command('about') & filters.private)
