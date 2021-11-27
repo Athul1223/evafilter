@@ -119,10 +119,8 @@ async def status(client, message):
     )
     await asyncio.sleep(5)
     await sm.delete()
-    try:
-        await message.message_text.delete()
-    except:
-        pass
+    await message.delete()
+
 @Client.on_message(filters.command('about') & filters.private)
 async def about(client, message):
     await message.reply_photo(
