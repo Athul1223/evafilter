@@ -18,7 +18,9 @@ PICS = (
          "https://telegra.ph/file/99895680d684d0711c017.jpg",
          "https://telegra.ph/file/5ab2662271c89cbf0a1e3.jpg",
          "https://telegra.ph/file/e6d9a367fe3d4e64b0195.jpg",
-         "https://telegra.ph/file/af58155475465e05d3311.jpg",
+         "https://telegra.ph/file/dc3ae3fa1b4c5d8b08a6b.jpg",
+         "https://telegra.ph/file/a6c5b9721ee4c19243117.jpg",
+         "https://telegra.ph/file/326bac938aa92ea6d8b7a.jpg",
          "https://telegra.ph/file/f0cb6b3b14e07514fcd16.jpg",
 )
 
