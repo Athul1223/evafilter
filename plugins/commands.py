@@ -113,10 +113,16 @@ async def help(client, message):
 
 @Client.on_message(filters.command('status') & filters.private)
 async def status(client, message):
-    sm=await message.reply_text(script.STATUS_TXT.format(message.from_user.mention))
+    sm=await message.reply_text(
+           text=script.STATUS_TXT.format(message.from_user.mention),
+           reply_to_message_id=message.message_id,
+    )
     await asyncio.sleep(8)
     await sm.delete()
-
+    try:
+        await message.message.reply_to_message.delete()
+    except:
+        pass
 @Client.on_message(filters.command('about') & filters.private)
 async def about(client, message):
     await message.reply_photo(
