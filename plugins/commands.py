@@ -117,10 +117,10 @@ async def status(client, message):
            text=script.STATUS_TXT.format(message.from_user.mention),
            reply_to_message_id=message.message_id,
     )
-    await asyncio.sleep(8)
+    await asyncio.sleep(5)
     await sm.delete()
     try:
-        await message.message.reply_to_message.delete()
+        await message.message_text.delete()
     except:
         pass
 @Client.on_message(filters.command('about') & filters.private)
