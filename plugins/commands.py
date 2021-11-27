@@ -113,7 +113,9 @@ async def help(client, message):
 
 @Client.on_message(filters.command('status') & filters.private)
 async def status(client, message):
-    await message.reply_text(script.STATUS_TXT.format(message.from_user.mention))
+    sm=await message.reply_text(script.STATUS_TXT.format(message.from_user.mention))
+    await asyncio.sleep(8)
+    await sm.delete()
 
 @Client.on_message(filters.command('about') & filters.private)
 async def about(client, message):
