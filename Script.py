@@ -40,6 +40,10 @@ class script(object):
 
 """
 
+    STATUS_TXT = """ Hello {}👋,
+
+<code>I'm really sorry to disappoint you...This command is for My Dev..🥺</code>
+"""
 
     ABOUT_TXT = """⭕️<b>My Name : Deanerys</b>
 
