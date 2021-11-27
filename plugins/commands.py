@@ -125,7 +125,7 @@ async def status(client, message):
 async def about(client, message):
     await message.reply_photo(
         photo=random.choice(PICS),
-        caption=script.ABOUT_TXT.format(message.from_user.mention),
+        caption=script.ABOUT_TXT.format(temp.B_NAME),
         reply_markup=InlineKeyboardMarkup(
             [
                 [
