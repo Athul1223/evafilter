@@ -42,7 +42,7 @@ class script(object):
 
     STATUS_TXT = """ Hello {}👋,
 
-<code>I'm really sorry to disappoint you...This command is for My Dev..🥺</code>
+<b>I'm really sorry to disappoint you...This command works only for My Devs..🥺</b>
 """
 
     ABOUT_TXT = """⭕️<b>My Name : Deanerys</b>
