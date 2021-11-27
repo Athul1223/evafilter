@@ -31,26 +31,29 @@ class script(object):
 
 <b>Extras;</b>
 
-<code>/status</code> -  Shows current status of your bot (Auth User Only)
+<code>/status</code> -  Shows current status of your bot (Dev Command)
 <code>/id</code>  -  Shows ID information
-<code>/info userid</code>  -  Shows User Information. Use <code>/info</code> as reply to some message for their details!
+<code>/info userid</code>  -  Shows User Information. Use <code>/info</code> as reply to someone's message for their details!
 
 
-<b>© @InfameSeries</b>
+<b>Maintained by:</b> <b><a href="https://t.me/Pubgplayer1">Walter</a></b>
 
 """
 
     STATUS_TXT = """ Hello {}👋,
 
-<b>I'm really sorry to disappoint you...This command works only for My Devs..🥺</b>
+<b>I'm really sorry to disappoint you...This command work only for My Devs..🥺</b>
 """
 
-    ABOUT_TXT = """⭕️<b>My Name : Deanerys</b>
+    ABOUT_TXT = """<b>• My Name : {}</b>
 
-⭕️<b>Creater :</b> {} 
+<b>• Creater :</b> <a href="https://t.me/pubgplayer1">Click Here</a>
 
-⭕️<b>Language :</b> <code>Python3</code>
+<b>• Language :</b> <code>Python3</code>
 
-⭕️<b>Library :</b> <a href='https://docs.pyrogram.org/'>Pyrogram 1.0.7</a> 
+<b>• Library :</b> <a href='https://docs.pyrogram.org/'>Pyrogram 1.0.7</a> 
 
+<b>• Server :<b> HEROKU </b>
+
+<b>• Build Version :<b> V9.0.1[Beta]</b>
 """
