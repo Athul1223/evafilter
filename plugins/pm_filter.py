@@ -71,7 +71,7 @@ async def give_filter(client,message):
                 break 
 
     else:
-        await auto_filter(client, message)   
+        await message.reply("Uploading Soon Please Wait...🙂")
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
