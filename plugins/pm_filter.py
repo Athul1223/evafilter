@@ -71,7 +71,8 @@ async def give_filter(client,message):
                 break 
 
     else:
-        await auto_filter(client, message)
+        await asyncio.sleep(0.3)
+        return
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
