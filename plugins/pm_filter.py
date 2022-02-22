@@ -29,50 +29,51 @@ SPELL_CHECK = {}
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client,message):
     group_id = message.chat.id
-    name = message.text
-
+    name = text or message.text
+    reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
     keywords = await get_filters(group_id)
     for keyword in reversed(sorted(keywords, key=len)):
         pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
         if re.search(pattern, name, flags=re.IGNORECASE):
             reply_text, btn, alert, fileid = await find_filter(group_id, keyword)
 
-            imdb = await get_poster(name) if IMDB else None
-            capts = f"\n<b>○ Title:</b> <b>{keyword.capitalize()}</b> \n<b>○ Year:</b> <code>{imdb.get('year')}</code>\n<b>○ Language:</b> <b>{imdb.get('languages')}</b>\n\n<b>○ Requested by:</b> <b>{message.from_user.mention}</b>\n\n <i>Click on below button to get files...</i>"  
             if reply_text:
-                reply_text = reply_text+capts.replace("\\n", "\n").replace("\\t", "\t")
+                reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
 
             if btn is not None:
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            await message.reply_text(reply_text, disable_web_page_preview=True)
+                            await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                         else:
                             button = eval(btn)
-                            await message.reply_text(
+                            await client.send_message(
+                                group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
-                                reply_markup=InlineKeyboardMarkup(button)
+                                reply_markup=InlineKeyboardMarkup(button),
+                                reply_to_message_id=reply_id
                             )
                     elif btn == "[]":
-                        await message.reply_cached_media(
+                        await client.send_cached_media(
+                            group_id,
                             fileid,
-                            caption=reply_text or ""
+                            caption=reply_text or "",
+                            reply_to_message_id=reply_id
                         )
                     else:
-                        button = eval(btn) 
+                        button = eval(btn)
                         await message.reply_cached_media(
                             fileid,
-                            caption=capts or "",
-                            reply_markup=InlineKeyboardMarkup(button)
+                            caption=reply_text or "",
+                            reply_markup=InlineKeyboardMarkup(button),
+                            reply_to_message_id=reply_id
                         )
                 except Exception as e:
                     logger.exception(e)
-                break 
-
+                break
     else:
-        await asyncio.sleep(0.3)
-        return
+        return False
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
