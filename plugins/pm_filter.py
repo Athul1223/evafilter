@@ -27,7 +27,7 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
-async def give_filter(client,message):
+async def give_filter(client,message, text=False):
     group_id = message.chat.id
     name = text or message.text
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
